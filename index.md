@@ -10,7 +10,7 @@ syntax:
             [-s seconds_to_run | -c command_to_run]
             [-r number_of_runs] [-b seconds_between_runs]
             [-e] [-p] [-t]
-            [-o output_file_name | -f output_file_folder]
+            [-o output_file_name] [-f output_file_folder]
 options:
 b     Set the number of second to pause between runs.
 c     Run for specified command.
@@ -22,7 +22,6 @@ h     Print this Help.
 l     Run in logging mode.
 o     Set output file.
       The path to the file has to exist.
-      It cannot start with "temp".
 p     Print average power.
 r     Set the number of times to run.
 s     Run for specified number of seconds.
