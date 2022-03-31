@@ -2,11 +2,9 @@
 layout: home
 ---
 
-FernIvy is a command-line tool for measuring energy consumption, with the same interface for both MacOS and Linux.
+FernIvy is a command-line tool for measuring energy consumption, with the same interface for both MacOS and Linux. The following configurations are possible:
 
-The following configurations are possible:
-
-```
+```txt
 syntax:
     fernivy [-h] [-l]
             [-s seconds_to_run | -c command_to_run]
@@ -49,7 +47,7 @@ fernivy -s 1 -r 5 -b 1 -p -e -t -o result
 
 You will get the following output on your console:
 
-```
+```txt
 |#####| 5/5
 
 Average total energy consumption: 31.290000000000003 J
@@ -74,11 +72,11 @@ avg,,31.290000000000003,31.24840119389636,1.0013329858
 
 ## Releases:
 
-* v1.0.2
+* <a href="https://github.com/fernivy/fernivy/releases/tag/v1.1.0" target="blank">v1.1.0</a>
     * Sudo access requested outside of script
     * Temporary files using `mktemp`
 * <a href="https://github.com/fernivy/fernivy/releases/tag/v1.0.1-macos" target="blank">v1.0.1 for MacOS</a>
-* <a href="https://github.com/fernivy/fernivy/releases/tag/v1.0.0" target="blank">[v1.0.0]</a>
+* <a href="https://github.com/fernivy/fernivy/releases/tag/v1.0.0" target="blank">v1.0.0</a>
     * Uniform data output for all supported tools
     * Command Mode vs Timed Mode
     * Varying number of runs + customisable sleep time
@@ -94,7 +92,7 @@ Please follow the installation guide for your operating system, since FernIvy de
 
 ### Linux (Debian / Ubuntu)
 
-Go to the latest release on GitHub and download and depackage the `.deb` binary.
+Go to the <a href="https://github.com/fernivy/fernivy/releases/latest" target="blank">latest release on GitHub</a> and download and depackage the `.deb` binary.
 
 FernIvy has two dependencies when running on Linux: `linux-perf` (for measurement) and `python3` (for data processing). They are listed as dependencies in the `.deb` files, so running the following command after the depackaging should fix if they are missing:
 
