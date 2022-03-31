@@ -92,7 +92,6 @@ Download [this](https://www.flaticon.com/free-icon/work-in-progress_5578703) `.d
 
 ```bash
 sudo dpkg -i fernivy_1.0.0_all.deb
-alias fernivy="fernivy.sh"
 ```
 
 ## License
