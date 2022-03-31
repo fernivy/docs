@@ -71,6 +71,21 @@ index,timestamp,total_energy_consumption,average_power,time_elapsed
 ,,,,
 avg,,31.290000000000003,31.24840119389636,1.0013329858
 ```
+
+## Releases:
+
+* v1.0.2
+    * Sudo access requested outside of script
+    * Temporary files using `mktemp`
+* <a href="https://github.com/fernivy/fernivy/releases/tag/v1.0.1-macos" target="blank">v1.0.1 for MacOS</a>
+* <a href="https://github.com/fernivy/fernivy/releases/tag/v1.0.0" target="blank">[v1.0.0]</a>
+    * Uniform data output for all supported tools
+    * Command Mode vs Timed Mode
+    * Varying number of runs + customisable sleep time
+    * Averages over runs
+    * Output file and output folder specification
+    * Logging mode
+
 ## Installation
 
 Please follow the installation guide for your operating system, since FernIvy depends on different libraries for each of them.
@@ -79,20 +94,23 @@ Please follow the installation guide for your operating system, since FernIvy de
 
 ### Linux (Debian / Ubuntu)
 
-You first need to install the following dependencies:
+Go to the latest release on GitHub and download and depackage the `.deb` binary.
 
-* `python3`: you can follow [this](https://docs.python-guide.org/starting/install3/linux/) guide.
-* `perf`:
+FernIvy has two dependencies when running on Linux: `linux-perf` (for measurement) and `python3` (for data processing). They are listed as dependencies in the `.deb` files, so running the following command after the depackaging should fix if they are missing:
+
+```bash
+sudo apt --fix-broken install
+```
+
+You can also choose to install them using the <a href="https://docs.python-guide.org/starting/install3/linux/" target="_blank">Installing Python 3 on Linux</a> guide and the following command:
 
 ```bash
 sudo apt install linux-perf
 ```
 
-Download [this](https://www.flaticon.com/free-icon/work-in-progress_5578703) `.deb` package and run the following command to install it:
+### Other
 
-```bash
-sudo dpkg -i fernivy_1.0.0_all.deb
-```
+Check out the <a href="https://github.com/fernivy/fernivy" target="_blank">repository</a>.
 
 ## License
 

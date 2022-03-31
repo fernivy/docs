@@ -52,3 +52,10 @@ regenerate:       true
 plugins:
   - jekyll-feed
   - jemoji
+
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
+  
