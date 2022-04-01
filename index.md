@@ -71,6 +71,10 @@ avg,,31.290000000000003,31.24840119389636,1.0013329858
 
 ## Releases:
 
+* <a href="https://github.com/fernivy/fernivy/releases/tag/v1.2.0" target="blank">v1.2.0</a>
+    * Generation of packages both for installing from source (both OS) and using .deb binary (Linux) or homebrew (MacOS)
+    * Up-to-date documentation (README, CONTRIBUTING, CHANGELOG)
+    * Simplified generator
 * <a href="https://github.com/fernivy/fernivy/releases/tag/v1.1.0" target="blank">v1.1.0</a>
     * Sudo access requested outside of script
     * Temporary files using `mktemp`
@@ -83,11 +87,30 @@ avg,,31.290000000000003,31.24840119389636,1.0013329858
     * Output file and output folder specification
     * Logging mode
 
+For more information, you can check the <a href="https://github.com/fernivy/fernivy/releases" target="blank">overview of GitHub releases</a> and the <a href="https://github.com/fernivy/fernivy/blob/main/CHANGELOG.md" target="blank">`CHANGELOG.md`</a>.
+
+
 ## Installation
 
 Please follow the installation guide for your operating system, since FernIvy depends on different libraries for each of them.
 
 ### MacOS
+
+FernIvy has two dependencies when running on MacOS: PowerLog (the command line interface from Intel Power Gadget for energy consumption measurement) and Python 3 (for data processing). PowerLog can be installed with Intel Power Gadget according to these <a href="https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html" target="blank">installation instructions</a>. Installation instructions for Python 3 can be found for example <a href="https://docs.python-guide.org/starting/install3/osx/" target="blank">here</a>.
+
+For `fernivy` to run properly, it is important to know the location where PowerLog was installed. This is usually within the `Applications` folder at `/Applications/Intel\ Power\ Gadget/PowerLog`. If that is the case, you can move on to the next step. However, if you installed PowerLog somewhere else, it is important to define an environment variable called `FERNIVY_POWERLOG_PATH` to inform `fernivy` where to look for it. This is done either by calling
+
+```bash
+export FERNIVY_POWERLOG_PATH=<path>
+```
+
+or by adding this line to your bash profile (usually `$HOME/.bashrc` or `$HOME/.zshrc`).
+
+Now that all the dependencies are installed, `fernivy` can be installed using <a href="https://brew.sh" target="blank">Homebrew</a> with
+
+```bash
+brew tap fernivy/fernivy && brew install fernivy
+```
 
 ### Linux (Debian / Ubuntu)
 
@@ -105,9 +128,19 @@ You can also choose to install them using the <a href="https://docs.python-guide
 sudo apt install linux-perf
 ```
 
-### Other
+**NOTE:** For Perf specifically, you need to run the tool using `sudo`, since Perf requires root access.
 
-Check out the <a href="https://github.com/fernivy/fernivy" target="_blank">repository</a>.
+### Installing from source
+
+It is also possible to download the `.zip` or `.tar.gz` file directly from the <a href="https://github.com/fernivy/fernivy/releases/latest" target="blank">latest release on GitHub</a>.
+
+This can be done both for MacOS and Linux, but the dependency on Python 3 and PowerLog/`perf` remains the same. After downloading and unpacking the source, one can generate the necessary scripts using `make generate`. The correct scripts for running `fernivy` from source can then be found in either `powerlog/package` or `perf/package`.
+
+Note that with this installation, it is necessary to call `fernivy` from the `package` folder with the following command:
+
+```bash
+./fernivy [options]
+```
 
 ## License
 
@@ -115,6 +148,6 @@ This work is open sourced under the Apache License, Version 2.0.
 
 Copyright 2022 FernIvy
 
-This site uses <a href="https://github.com/sighingnow/jekyll-gitbook" target="_blank">GitBook</a>, a documentation theme for Jekyll. 
+This site uses <a href="https://github.com/sighingnow/jekyll-gitbook" target="_blank">GitBook</a>, a documentation theme for Jekyll.
 
 [gitbook]: https://github.com/sighingnow/jekyll-gitbook
