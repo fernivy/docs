@@ -28,6 +28,8 @@ s     Run for specified number of seconds.
 t     Print total execution time.
 ```
 
+Calling `fernivy` will by default run a single measurement for 60 seconds without printing any values.
+
 ### Example
 
 The following command will:
@@ -71,8 +73,11 @@ avg,,31.290000000000003,31.24840119389636,1.0013329858
 
 ## Releases:
 
+* <a href="https://github.com/fernivy/fernivy/releases/tag/v1.2.1" target="blank">v1.2.1</a>
+    * Update of `perf` packaging and relevant information
+    * No sleep when running only one measurement
 * <a href="https://github.com/fernivy/fernivy/releases/tag/v1.2.0" target="blank">v1.2.0</a>
-    * Generation of packages both for installing from source (both OS) and using .deb binary (Linux) or homebrew (MacOS)
+    * Generation of packages both for installing from source (both OS) and using `.deb` binary (Linux) or homebrew (MacOS)
     * Up-to-date documentation (README, CONTRIBUTING, CHANGELOG)
     * Simplified generator
 * <a href="https://github.com/fernivy/fernivy/releases/tag/v1.1.0" target="blank">v1.1.0</a>
@@ -96,7 +101,7 @@ Please follow the installation guide for your operating system, since FernIvy de
 
 ### MacOS
 
-FernIvy has two dependencies when running on MacOS: PowerLog (the command line interface from Intel Power Gadget for energy consumption measurement) and Python 3 (for data processing). PowerLog can be installed with Intel Power Gadget according to these <a href="https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html" target="blank">installation instructions</a>. Installation instructions for Python 3 can be found for example <a href="https://docs.python-guide.org/starting/install3/osx/" target="blank">here</a>.
+FernIvy has two dependencies when running on MacOS: PowerLog (the command line interface from Intel Power Gadget for energy consumption measurement) and Python 3 (for data processing). PowerLog can be installed with Intel Power Gadget according to these <a href="https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html" target="blank">installation instructions</a>. Installation instructions for Python 3 can be found, for example, <a href="https://docs.python-guide.org/starting/install3/osx/" target="blank">here</a>.
 
 For `fernivy` to run properly, it is important to know the location where PowerLog was installed. This is usually within the `Applications` folder at `/Applications/Intel\ Power\ Gadget/PowerLog`. If that is the case, you can move on to the next step. However, if you installed PowerLog somewhere else, it is important to define an environment variable called `FERNIVY_POWERLOG_PATH` to inform `fernivy` where to look for it. This is done either by calling
 
@@ -134,7 +139,7 @@ sudo apt install linux-perf
 
 It is also possible to download the `.zip` or `.tar.gz` file directly from the <a href="https://github.com/fernivy/fernivy/releases/latest" target="blank">latest release on GitHub</a>.
 
-This can be done both for MacOS and Linux, but the dependency on Python 3 and PowerLog/`perf` remains the same. After downloading and unpacking the source, one can generate the necessary scripts using `make generate`. The correct scripts for running `fernivy` from source can then be found in either `powerlog/package` or `perf/package`.
+This can be done both for MacOS and Linux, but the dependency on Python 3 and PowerLog/`perf` remains the same. After downloading and unpacking the source, one can generate the necessary scripts using `make`. The correct scripts for running `fernivy` from source can then be found in either `powerlog/package` or `perf/package`.
 
 Note that with this installation, it is necessary to call `fernivy` from the `package` folder with the following command:
 
