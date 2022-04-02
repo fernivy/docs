@@ -43,7 +43,7 @@ The following command will:
 * and save the result in "result.csv".
 
 ```bash
-fernivy -s 1 -r 5 -b 1 -p -e -t -o result
+fernivy -s 2 -r 5 -b 1 -p -e -t -o result.csv
 ```
 
 You will get the following output on your console:
@@ -51,9 +51,9 @@ You will get the following output on your console:
 ```txt
 |#####| 5/5
 
-Average total energy consumption: 31.290000000000003 J
-Average power: 31.24840119389636 W
-Average total time elapsed: 1.0013329858 s
+Average total energy consumption: 55.806 J
+Average power: 27.889147449519392 W
+Average total time elapsed: 2.0009933058000002 s
 
 Results exported to: result.csv
 ```
@@ -62,20 +62,20 @@ The `result.csv` file will have the following data:
 
 ```csv
 index,timestamp,total_energy_consumption,average_power,time_elapsed
-0,Thu Mar 31 08:51:49 2022,30.42,30.37519801056872,1.001474953
-1,Thu Mar 31 08:51:51 2022,34.1,34.05739069632765,1.001251103
-2,Thu Mar 31 08:51:53 2022,30.77,30.730595632289305,1.001282252
-3,Thu Mar 31 08:51:56 2022,31.03,30.98722257305901,1.001380486
-4,Thu Mar 31 08:51:58 2022,30.13,30.091599057237094,1.001276135
+0,Sat Apr  2 10:33:14 2022,55.87,27.920823202019175,2.0010155
+1,Sat Apr  2 10:33:17 2022,56.31,28.140748638455904,2.001012863
+2,Sat Apr  2 10:33:20 2022,55.54,27.756613373962324,2.000964572
+3,Sat Apr  2 10:33:24 2022,55.9,27.936054628825893,2.000998378
+4,Sat Apr  2 10:33:27 2022,55.41,27.691497404333663,2.000975216
 ,,,,
-avg,,31.290000000000003,31.24840119389636,1.0013329858
+avg,,55.806,27.889147449519392,2.0009933058000002
 ```
 
-## Releases:
+## Releases
 
 * <a href="https://github.com/fernivy/fernivy/releases/tag/v1.2.1" target="blank">v1.2.1</a>
     * Update of `perf` packaging and relevant information
-    * No sleep when running only one measurement
+    * No sleep after the last measurement
 * <a href="https://github.com/fernivy/fernivy/releases/tag/v1.2.0" target="blank">v1.2.0</a>
     * Generation of packages both for installing from source (both OS) and using `.deb` binary (Linux) or homebrew (MacOS)
     * Up-to-date documentation (README, CONTRIBUTING, CHANGELOG)
@@ -143,7 +143,7 @@ This can be done both for MacOS and Linux, but the dependency on Python 3 and Po
 
 Note that with this installation, it is necessary to call `fernivy` from the `package` folder with the following command:
 
-```bash
+```
 ./fernivy [options]
 ```
 
